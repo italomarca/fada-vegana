@@ -1,40 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Testeihasduiahsdiuahdisudh</Text>
+class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text>Testeihasduiahsdiuahdisudh</Text>
+        </View>
+        <View style={styles.body}>
+          {/* <ListView
+            data={restaurants}
+            renderRow={() => ''}
+          /> */}
+        </View>
       </View>
-      <View style={styles.body}>
-        <Text>Testeihasduiahsdiuahdisudh</Text>
-      </View>
-    </View>
-  );
+    );
+  }
 };
 
 const styles = StyleSheet.create({
