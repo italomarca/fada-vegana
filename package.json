@@ -1,0 +1,19 @@
+{
+  "name": "fada-vegana",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italomarca/fada-vegana.git"
+  },
+  "author": "Italo Marca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/italomarca/fada-vegana/issues"
+  },
+  "homepage": "https://github.com/italomarca/fada-vegana#readme"
+}
