@@ -5,7 +5,7 @@ import {TextInput} from '@shoutem/ui';
 
 class App extends React.Component {
   constructor(ctx, props) {
-    super();
+    super(ctx, props);
 
     this.state = {
       searchText: '',
@@ -155,8 +155,12 @@ class App extends React.Component {
           {rowData.options &&
             rowData.options.map(data => (
               <View style={styles.brandOption}>
-                <Text style={styles.brandOptionText}>{`Opção ${data.optionNumber}`}</Text>
-                <Text style={styles.brandOptionText}>{`Marca: ${data.brand}`}</Text>
+                <Text style={styles.brandOptionText}>{`Opção ${
+                  data.optionNumber
+                }`}</Text>
+                <Text style={styles.brandOptionText}>{`Marca: ${
+                  data.brand
+                }`}</Text>
               </View>
             ))}
         </View>
@@ -170,7 +174,7 @@ class App extends React.Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <TextInput
-            placeholder="Digite aqui seu produtinho"
+            placeholder="Digite aqui seu produtinho <3"
             onChangeText={text => this.setState({searchText: text})}
             style={styles.searchTextInput}
           />
@@ -195,7 +199,6 @@ const styles = StyleSheet.create({
     padding: 10,
     flex: 1,
     backgroundColor: '#fff',
-    // fontFamily: 'Open Sans',
   },
   header: {
     height: 100,
@@ -225,7 +228,8 @@ const styles = StyleSheet.create({
   },
   searchTextInput: {
     flex: 1,
-    fontSize: 18,
+    fontSize: 22,
+    fontWeight: 'bold',
     textAlignVertical: 'bottom',
     backgroundColor: 'transparent',
   },
