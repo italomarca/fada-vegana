@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, ScrollView, Image} from 'react-native';
 
 import {TextInput} from '@shoutem/ui';
 
@@ -145,7 +145,29 @@ class App extends React.Component {
         },
       ],
     };
+
+    this.state.searchResults = this.state.products;
   }
+
+  _searchProductsByText = text => {
+    console.log('text: ', text.length);
+    const {products} = this.state;
+
+    let searchResults = [];
+    products.forEach(product => {
+      console.log('name: ', product.name.substr(0, 3));
+      if (
+        product.name
+          .substr(0, text.length)
+          .toLowerCase()
+          .trim() === text.toLowerCase().trim()
+      ) {
+        searchResults.push(product);
+      }
+    });
+
+    this.setState({searchResults});
+  };
 
   _renderRow = rowData => {
     return (
@@ -169,18 +191,22 @@ class App extends React.Component {
   };
 
   render() {
-    const {products} = this.state;
+    const {searchResults} = this.state;
     return (
       <View style={styles.container}>
+        <Image
+          source={require('./img/2975/android/playstore-icon.png')}
+          style={{width: 50, height: 50, alignSelf: 'center'}}
+        />
         <View style={styles.header}>
           <TextInput
             placeholder="Digite aqui seu produtinho <3"
-            onChangeText={text => this.setState({searchText: text})}
+            onChangeText={text => this._searchProductsByText(text)}
             style={styles.searchTextInput}
           />
         </View>
         <ScrollView style={styles.body}>
-          <ListView data={products} renderRow={this._renderRow} />
+          <ListView data={searchResults} renderRow={this._renderRow} />
         </ScrollView>
       </View>
     );
@@ -198,7 +224,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     padding: 10,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F8F7F2',
   },
   header: {
     height: 100,
@@ -206,11 +232,10 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    backgroundColor: '#fff',
     height: '100%',
   },
   rowItemWraper: {
-    borderRadius: 5,
+    borderRadius: 10,
     backgroundColor: '#fff',
     flexDirection: 'column',
     justifyContent: 'center',
